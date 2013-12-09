@@ -1,8 +1,8 @@
 The Twelve Factors
 ==================
 
-## [I. Codebase](/codebase)
-### One codebase tracked in revision control, many deploys
+## [I. Кодовая база](/codebase)
+### Одна кодовая база всегда находится в системе контроля версий и используется для множества деплоев
 
 ## [II. Dependencies](/dependencies)
 ### Explicitly declare and isolate dependencies
