@@ -4,8 +4,8 @@ The Twelve Factors
 ## [I. Кодовая база](/codebase)
 ### Одна кодовая база всегда находится в системе контроля версий и используется для множества деплоев
 
-## [II. Dependencies](/dependencies)
-### Explicitly declare and isolate dependencies
+## [II. Зависимости](/dependencies)
+### Явно указывайте и изолируйте зависимости
 
 ## [III. Config](/config)
 ### Store config in the environment
