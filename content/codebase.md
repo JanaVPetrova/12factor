@@ -1,16 +1,24 @@
-## I. Codebase
-### One codebase tracked in revision control, many deploys
+## I. Кодовая база
+### Одна кодовая база всегда находится в системе контроля версий и используется для множества деплоев
 
-A twelve-factor app is always tracked in a version control system, such as [Git](http://git-scm.com/), [Mercurial](http://mercurial.selenic.com/), or [Subversion](http://subversion.apache.org/).  A copy of the revision tracking database is known as a *code repository*, often shortened to *code repo* or just *repo*.
+Приложение двенадцати факторов всегда находится в системе контроля версий, таких как
+[Git](http://git-scm.com/),[Mercurial](http://mercurial.selenic.com/),
+или [Subversion](http://subversion.apache.org/). Копия ревизии отслеживающеся базы данных
+называется *кодовым репозиторием*, или "кодовым репо", или просто "репо".
 
-A *codebase* is any single repo (in a centralized revision control system like Subversion), or any set of repos who share a root commit (in a decentralized revision control system like Git).
+*Кодовая база* - это любой отдельный репозиторий (в централизованных системам контроля версий, таких как
+Subversion) или любой набор репозиториев, у которых есть общий корневой коммит (в децентрализованных
+системах контроля версий, таких как Git)
 
-![One codebase maps to many deploys](/images/codebase-deploys.png)
+![Одна кодовая база используется для множества деплоев](/images/codebase-deploys.png)
 
-There is always a one-to-one correlation between the codebase and the app:
+Всегда есть связь "один к одному" между кодовай базой и приложением:
 
-* If there are multiple codebases, it's not an app -- it's a distributed system.  Each component in a distributed system is an app, and each can individually comply with twelve-factor.
-* Multiple apps sharing the same code is a violation of twelve-factor.  The solution here is to factor shared code into libraries which can be included through the [dependency manager](/dependencies).
+* Если есть много кодобых баз, то это не приложение -- это распределенная система. Каждый компонент
+в распределенной системе - приложение, каждое из которых в отдельности соответствует двенадцати факторам.
+* Множество приложений, делящих между собой одну кодовую базу нарушают двенадцать факторов.
+Решение для такой ситуации - включить общий код в библиотеки, которые можно подключить с помощью
+[менеджера зависимостей](/dependencies).
 
 There is only one codebase per app, but there will be many deploys of the app.  A *deploy* is a running instance of the app.  This is typically a production site, and one or more staging sites.  Additionally, every developer has a copy of the app running in their local development environment, each of which also qualifies as a deploy.
 
