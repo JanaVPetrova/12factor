@@ -1,7 +1,11 @@
 ## II. Зависимости
 ### Явно указывайте и изолируйте зависимости
 
-Most programming languages offer a packaging system for distributing support libraries, such as [CPAN](http://www.cpan.org/) for Perl or [Rubygems](http://rubygems.org/) for Ruby.  Libraries installed through a packaging system can be installed system-wide (known as "site packages") or scoped into the directory containing the app (known as "vendoring" or "bundling").
+Большинство языков программирования предлагают пакетные менеджеры для распространения поддерживаемых
+библиотек, такие как [CPAN](http://www.cpan.org/) для Perl или [Rubygems](http://rubygems.org/)
+для Ruby. Библиотеки, установленные с помощью пакетного менеджера, можно установить как для
+всей системы (в "site packages"), так и в отдельную директорию ("vendoring" или "bundling"),
+содержащую приложение.
 
 **A twelve-factor app never relies on implicit existence of system-wide packages.**  It declares all dependencies, completely and exactly, via a *dependency declaration* manifest.  Furthermore, it uses a *dependency isolation* tool during execution to ensure that no implicit dependencies "leak in" from the surrounding system.  The full and explicit dependency specification is applied uniformly to both production and development.
 
