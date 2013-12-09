@@ -7,7 +7,12 @@
 всей системы (в "site packages"), так и в отдельную директорию ("vendoring" или "bundling"),
 содержащую приложение.
 
-**A twelve-factor app never relies on implicit existence of system-wide packages.**  It declares all dependencies, completely and exactly, via a *dependency declaration* manifest.  Furthermore, it uses a *dependency isolation* tool during execution to ensure that no implicit dependencies "leak in" from the surrounding system.  The full and explicit dependency specification is applied uniformly to both production and development.
+**Приложение двенадцати факторов никогда не полагается на скрытое существование в системе
+какого-либо пакета.** Оно объявляет все зависимости точно и целиком с помощью манифеста
+*объявления зависимостей* (*dependency declaration* manifest). Кроме того, оно использует инструмент
+*изоляции зависимостей* во время исполнения, чтобы убедиться, что нет скрытых зависимостей, утечка
+которых произошла из окружающей системы. Полная и явная спецификация зависимостей применяется и в
+продакшн-среде, и в среде разработки.
 
 For example, [Gem Bundler](http://gembundler.com/) for Ruby offers the `Gemfile` manifest format for dependency declaration and `bundle exec` for dependency isolation.  In, Python there are two separate tools for these steps -- [Pip](http://www.pip-installer.org/en/latest/) is used for declaration and [Virtualenv](http://www.virtualenv.org/en/latest/) for isolation.  Even C has [Autoconf](http://www.gnu.org/s/autoconf/) for dependency declaration, and static linking can provide dependency isolation.  No matter what the toolchain, dependency declaration and isolation must always be used together -- only one or the other is not sufficient to satisfy twelve-factor.
 
