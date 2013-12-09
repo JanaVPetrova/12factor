@@ -25,7 +25,5 @@ Subversion) или любой набор репозиториев, у котор
 или более стейджингов. В добавок к этому, у каждого разработчика есть своя копия, запущенная локально
 на его компьютере в среде разработки; каждая такая копия тоже считается деплоем
 
-There is only one codebase per app, but there will be many deploys of the app.  A *deploy* is a running instance of the app.  This is typically a production site, and one or more staging sites.  Additionally, every developer has a copy of the app running in their local development environment, each of which also qualifies as a deploy.
-
 The codebase is the same across all deploys, although different versions may be active in each deploy.  For example, a developer has some commits not yet deployed to staging; staging has some commits not yet deployed to production.  But they all share the same codebase, thus making them identifiable as different deploys of the same app.
 
