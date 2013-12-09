@@ -25,5 +25,7 @@ Subversion) или любой набор репозиториев, у котор
 или более стейджингов. В добавок к этому, у каждого разработчика есть своя копия, запущенная локально
 на его компьютере в среде разработки; каждая такая копия тоже считается деплоем
 
-The codebase is the same across all deploys, although different versions may be active in each deploy.  For example, a developer has some commits not yet deployed to staging; staging has some commits not yet deployed to production.  But they all share the same codebase, thus making them identifiable as different deploys of the same app.
-
+У всех деплоев одна и та же кодовая база, хотя в каждом деплое активными могут быть разные версии.
+Например, у разработчика есть несколько незадеплоенных на стейджинг коммитов, на стейджинге есть
+незадеплоенные на продакшн коммиты. Но у всех них одна и так же кодовая база, таким образом, делая их
+разными деплоями одного и того же приложения
