@@ -16,7 +16,7 @@
 
 Например, [Gem Bundler](http://gembundler.com/) для Ruby предлагает манифест в формате `Gemfile`
 для объявления зависимостей и `bundle exec` для изоляции зависимостей. В Python есть два отдельных
- инструмента для этих шагов -- [Pip](http://www.pip-installer.org/en/latest/) для объявления и
+инструмента для этих шагов -- [Pip](http://www.pip-installer.org/en/latest/) для объявления и
 [Virtualenv](http://www.virtualenv.org/en/latest/) для изоляции. Даже в C есть
 [Autoconf](http://www.gnu.org/s/autoconf/) для декларации, а статическая линковка (static linking)
 обеспечивает изоляцию зависимостей. Независимо от инструментария, объявление зависимостей и их изоляция
