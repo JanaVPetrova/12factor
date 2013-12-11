@@ -14,7 +14,14 @@
 которых произошла из окружающей системы. Полная и явная спецификация зависимостей применяется и в
 продакшн-среде, и в среде разработки.
 
-For example, [Gem Bundler](http://gembundler.com/) for Ruby offers the `Gemfile` manifest format for dependency declaration and `bundle exec` for dependency isolation.  In, Python there are two separate tools for these steps -- [Pip](http://www.pip-installer.org/en/latest/) is used for declaration and [Virtualenv](http://www.virtualenv.org/en/latest/) for isolation.  Even C has [Autoconf](http://www.gnu.org/s/autoconf/) for dependency declaration, and static linking can provide dependency isolation.  No matter what the toolchain, dependency declaration and isolation must always be used together -- only one or the other is not sufficient to satisfy twelve-factor.
+Например, [Gem Bundler](http://gembundler.com/) для Ruby манифест в формате `Gemfile` для объявления
+зависимостей и `bundle exec` для изоляции зависимостей. В Python есть два отдельных инструмента
+для этих шагов -- [Pip](http://www.pip-installer.org/en/latest/) для объявления и
+[Virtualenv](http://www.virtualenv.org/en/latest/) для изоляции. Даже в C есть
+[Autoconf](http://www.gnu.org/s/autoconf/) для декларации, а статическая линковка (static linking)
+обеспечивает изоляцию зависимостей. Независимо от инструментария, объявление зависимостей и их изоляция
+должны использовать вместе -- только одно или другое не достаточно, чтобы удовлетворить двенадцати
+факторам.
 
 One benefit of explicit dependency declaration is that it simplifies setup for developers new to the app.  The new developer can check out the app's codebase onto their development machine, requiring only the language runtime and dependency manager installed as prerequisites.  They will be able to set up everything needed to run the app's code with a deterministic *build command*.  For example, the build command for Ruby/Bundler is `bundle install`, while for Clojure/[Leiningen](https://github.com/technomancy/leiningen#readme) it is `lein deps`.
 
