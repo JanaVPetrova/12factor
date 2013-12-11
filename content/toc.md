@@ -7,8 +7,8 @@ The Twelve Factors
 ## [II. Зависимости](/dependencies)
 ### Явно указывайте и изолируйте зависимости
 
-## [III. Config](/config)
-### Store config in the environment
+## [III. Конфигурация](/config)
+### Храните конфигурацию в окружении
 
 ## [IV. Backing Services](/backing-services)
 ### Treat backing services as attached resources
