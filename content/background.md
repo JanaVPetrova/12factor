@@ -1,9 +1,18 @@
-Background
+Предисловие
 ==========
 
-The contributors to this document have been directly involved in the development and deployment of hundreds of apps, and indirectly witnessed the development, operation, and scaling of hundreds of thousands of apps via our work on the [Heroku](http://www.heroku.com/) platform.
+Создатели этой документации были непосредственно вовлечены в разработку и развертывание
+сотен приложений и были свидетелями разработки, развития и масштабирования сотен тысяч
+приложений во время работы над платформой [Heroku](http://www.heroku.com/)
 
-This document synthesizes all of our experience and observations on a wide variety of software-as-a-service apps in the wild.  It is a triangulation on ideal practices app development, paying particular attention to the dynamics of the organic growth of an app over time, the dynamics of collaboration between developers working on the app's codebase, and [avoiding the cost of software erosion](http://blog.heroku.com/archives/2011/6/28/the_new_heroku_4_erosion_resistance_explicit_contracts/).
+Эта документация содержит в себе весь наш опыт и наблюдения за большим количеством сервисов.
+Здесь собраны лучшие практики разработки приложений; особое внимание уделяется
+динамике естественного роста приложения с течением времени, сотрудничеству между разработчиками,
+работающими над кодобазой приложения и [избежанию разрушения приложения](http://blog.heroku.com/archives/2011/6/28/the_new_heroku_4_erosion_resistance_explicit_contracts/).
 
-Our motivation is to raise awareness of some systemic problems we've seen in modern application development, to provide a shared vocabulary for discussing those problems, and to offer a set of broad conceptual solutions to those problems with accompanying terminology.  The format is inspired by Martin Fowler's books *[Patterns of Enterprise Application Architecture](http://books.google.com/books/about/Patterns_of_enterprise_application_archi.html?id=FyWZt5DdvFkC)* and *[Refactoring](http://books.google.com/books/about/Refactoring.html?id=1MsETFPD3I0C)*.
-
+Наша цель - осознание некоторых систематических проблем, которые мы увидели в современной разработке
+приложений, чтобы создать общий словарь для обсуждения таких проблем и предложить набор открытых
+концептуальных решений для них с соответствующей терминологией. На такой формат нас вдохновили книги
+Мартина Фаулера
+*[Архитектура корпоративных программных приложений. Шаблоны корпоративных приложений](http://books.google.com/books/about/Patterns_of_enterprise_application_archi.html?id=FyWZt5DdvFkC)*
+и *[Рефакторинг. Улучшение существующего кода](http://books.google.com/books/about/Refactoring.html?id=1MsETFPD3I0C)*.
