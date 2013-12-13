@@ -1,4 +1,5 @@
-Who should read this document?
+Кому следует прочитать эту документацию?
 ==============================
 
-Any developer building applications which run as a service.  Ops engineers who deploy or manage such applications.
+Любому разработчику, работающему над приложением-сервисом. Ops-инженерам, занимающимся
+развертыванием и управлением такими приложениями.
