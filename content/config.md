@@ -1,23 +1,46 @@
 ## III. Config
 ### Store config in the environment
 
-An app's *config* is everything that is likely to vary between [deploys](/codebase) (staging, production, developer environments, etc).  This includes:
+*Конфигурация* приложения - это что-то, что должно изменяться для разных [деплоев](/codebase) (
+staging, production, окружение разработки, etc). В нее входит:
 
 * Resource handles to the database, Memcached, and other [backing services](/backing-services)
 * Credentials to external services such as Amazon S3 or Twitter
 * Per-deploy values such as the canonical hostname for the deploy
 
-Apps sometimes store config as constants in the code.  This is a violation of twelve-factor, which requires **strict separation of config from code**.  Config varies substantially across deploys, code does not.
+Иногда конфигурация в приложении прописана константами прямо в коде. Это нарушение одного из двенадцати
+факторов, который требует **строго отделения конфигурации от кода**. Конфигурация меняется от деплоя к деплою,
+а код - нет.
 
-A litmus test for whether an app has all config correctly factored out of the code is whether the codebase could be made open source at any moment, without compromising any credentials.
+Индикатором того, что всю конфигурацию приложения правильно вынесли из кода является то, что исходный код
+приложения можно открыть в любой момент, без ущерба для каких-либо учетных записей.
 
-Note that this definition of "config" does **not** include internal application config, such as `config/routes.rb` in Rails, or how [code modules are connected](http://static.springsource.org/spring/docs/2.5.x/reference/beans.html) in [Spring](http://www.springsource.org/).  This type of config does not vary between deploys, and so is best done in the code.
+Заметьте, что определение "конфигурация" не включает в себя внутренние настройки приложения, такие как
+`config/routes.rb` в Rails, или
+[как соединены модули кода](http://static.springsource.org/spring/docs/2.5.x/reference/beans.html) в
+[Spring](http://www.springsource.org/). Настройки этого типа не меняются от деплоя к деплою и поэтому
+их лучше не выносить из кода.
 
-Another approach to config is the use of config files which are not checked into revision control, such as `config/database.yml` in Rails.  This is a huge improvement over using constants which are checked into the code repo, but still has weaknesses: it's easy to mistakenly check in a config file to the repo; there is a tendency for config files to be scattered about in different places and different formats, making it hard to see and manage all the config in one place.  Further, these formats tend to be language- or framework-specific.
+Другой способ конфигурации - использование конфигурационных файлов, которые не включают в систему контроля
+версий. Но у такого подхода есть свои уязвимости: такой файл легко можно по ошибке отправить в репозиторий.
+Очень часто конфигурационные файлы разбросаны по проекту и хранят в себе информацию в разных форматах, что
+усложняет управление конфигурацией из одного места. Более того, эти форматы имеют обыкновение быть
+зависимыми от языка или фреймворка.
 
-**The twelve-factor app stores config in *environment variables*** (often shortened to *env vars* or *env*).  Env vars are easy to change between deploys without changing any code; unlike config files, there is little chance of them being checked into the code repo accidentally; and unlike custom config files, or other config mechanisms such as Java System Properties, they are a language- and OS-agnostic standard.
+**Приложение двенадцати факторов хранит конфигурацию в *переменных окружения*** (сокращенно *env vars* или
+*env*). Переменные окружения легко изменять для разных деплоев без изменения кода; в отличии от
+конфигурационных файлов, вероятность их случайного попадания в репозиторий очень маленькая; и в отличии от
+пользовательских конфигурационных файлов, или других механизмов, таких, как Java System Properties, они не
+зависимы от языка или операционной системы.
 
-Another aspect of config management is grouping.  Sometimes apps batch config into named groups (often called "environments") named after specific deploys, such as the `development`, `test`, and `production` environments in Rails.  This method does not scale cleanly: as more deploys of the app are created, new environment names are necessary, such as `staging` or `qa`.  As the project grows further, developers may add their own special environments like `joes-staging`, resulting in a combinatorial explosion of config which makes managing deploys of the app very brittle.
+Другой аспект управления конфигурацией - это группировка. Иногда приложения соединяют конфигурациии в
+группы (которые часто называют "окружения"), которые называют, например, `development`, `test`, или
+`production` в Rails, в зависимости от деплоя. Этот метод плохо масштабируется: чем больше деплоев, тем
+больше нужно названий для окружений, например `staging` или `qa`. Чем дальше развивается проект, тем больше
+создается окружений, разработчики создают свои собственные, такие как `joes-staging`, что приводит к
+бурному росту количества конфигурационных файлов. Это делает управление деплоями очень хрупким.
 
-In a twelve-factor app, env vars are granular controls, each fully orthogonal to other env vars.  They are never grouped together as "environments," but instead are independently managed for each deploy.  This is a model that scales up smoothly as the app naturally expands into more deploys over its lifetime.
-
+В приложении двенадцати факторов переменные окружения - это рычаги отвечающие каждый за свое; каждый из них
+ортогонален к другим переменным окружения. Их никогда не объединяют в группы по признаку окружения; ими
+управляют независимо для каждого деплоя. Эта модель хорошо расширяется и количество деплоев приложения
+естественно растет на протяжении всего времени его жизни.
