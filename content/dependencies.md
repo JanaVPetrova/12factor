@@ -24,7 +24,16 @@
 факторам.
 
 Еще один плюс явного указания зависимостей - это то, что упрощается установка и настройка среды для
-нового разработчика.
-One benefit of explicit dependency declaration is that it simplifies setup for developers new to the app.  The new developer can check out the app's codebase onto their development machine, requiring only the language runtime and dependency manager installed as prerequisites.  They will be able to set up everything needed to run the app's code with a deterministic *build command*.  For example, the build command for Ruby/Bundler is `bundle install`, while for Clojure/[Leiningen](https://github.com/technomancy/leiningen#readme) it is `lein deps`.
+нового разработчика. Новый разработчик может начать работу на своем компьютере имея только среду выполнения
+для языка и менеджер зависимостей. Он сможет установить все необходимое для запуска кода только одной
+определенной комендой. Например, команда сборки в Ruby/Bundler - "bundle install", а для
+Clojure/[Leiningen](https://github.com/technomancy/leiningen#readme) - `lein deps`
 
-Twelve-factor apps also do not rely on the implicit existence of any system tools.  Examples include shelling out to ImageMagick or `curl`.  While these tools may exist on many or even most systems, there is no guarantee that they will exist on all systems where the app may run in the future, or whether the version found on a future system will be compatible with the app.  If the app needs to shell out to a system tool, that tool should be vendored into the app.
+Приложение двенадцати факторов не доверяет неявному наличию каких-либо инструматов в системе. Возьмем,
+например, ImageMagick или `curl`. Как правило, эти инструметны установлены в большинстве систем, но нет
+никакой гарантии, что они будут установлены во всех системах, в которых это приложение будет запускаться в
+будущем, как и нет гарантий, что установленная версия будет совместима с этим приложением. Если приложению
+требуются внешние инструменты, то их нужно поставлять вместе и ним.
+<!--- FIXME
+If the app needs to shell out to a system tool, that tool should be vendored into the app.
+-->
