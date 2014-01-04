@@ -7,7 +7,13 @@
 или [Beanstalkd](http://kr.github.com/beanstalkd/)), SMTP сервисы для исходящих сообщений (например
 [Postfix](http://www.postfix.org/)) и системы кеширования (такие как [Memcached](http://memcached.org/))
 
-Backing services like the database are traditionally managed by the same systems administrators as the app's runtime deploy.  In addition to these locally-managed services, the app may also have services provided and managed by third parties.  Examples include SMTP services (such as [Postmark](http://postmarkapp.com/)), metrics-gathering services (such as [New Relic](http://newrelic.com/) or [Loggly](http://www.loggly.com/)), binary asset services (such as [Amazon S3](http://aws.amazon.com/s3/)), and even API-accessible consumer services (such as [Twitter](http://dev.twitter.com/), [Google Maps](http://code.google.com/apis/maps/index.html), or [Last.fm](http://www.last.fm/api)).
+Традиционно и резервными сервисами, и самим приложением управляют одни и те же администраторы. В добавок к
+ним приложение может использовать другие сервисы, которыми управляет третья сторона. Примерами таких сервисов
+могут быть SMTP серверы (такие как [Postmark](http://postmarkapp.com/)), сервисы по сбору метрик
+(как [New Relic](http://newrelic.com/) или [Loggly](http://www.loggly.com/)), binary asset services
+([Amazon S3](http://aws.amazon.com/s3/)) и даже сервисы, предоставляющие пользовательские API
+(такие как [Twitter](http://dev.twitter.com/), [Google Maps](http://code.google.com/apis/maps/index.html),
+или [Last.fm](http://www.last.fm/api)).
 
 **The code for a twelve-factor app makes no distinction between local and third party services.**  To the app, both are attached resources, accessed via a URL or other locator/credentials stored in the [config](/config).  A [deploy](/codebase) of the twelve-factor app should be able to swap out a local MySQL database with one managed by a third party (such as [Amazon RDS](http://aws.amazon.com/rds/)) without any changes to the app's code.  Likewise, a local SMTP server could be swapped with a third-party SMTP service (such as Postmark) without code changes.  In both cases, only the resource handle in the config needs to change.
 
