@@ -10,8 +10,8 @@ The Twelve Factors
 ## [III. Конфигурация](/config)
 ### Храните конфигурацию в окружении
 
-## [IV. Backing Services](/backing-services)
-### Treat backing services as attached resources
+## [IV. Резервные сервисы](/backing-services)
+### Рассматривайте резервные сервисы как сопутствующие ресурсы
 
 ## [V. Build, release, run](/build-release-run)
 ### Strictly separate build and run stages
