@@ -15,11 +15,22 @@
 (такие как [Twitter](http://dev.twitter.com/), [Google Maps](http://code.google.com/apis/maps/index.html),
 или [Last.fm](http://www.last.fm/api)).
 
-**The code for a twelve-factor app makes no distinction between local and third party services.**  To the app, both are attached resources, accessed via a URL or other locator/credentials stored in the [config](/config).  A [deploy](/codebase) of the twelve-factor app should be able to swap out a local MySQL database with one managed by a third party (such as [Amazon RDS](http://aws.amazon.com/rds/)) without any changes to the app's code.  Likewise, a local SMTP server could be swapped with a third-party SMTP service (such as Postmark) without code changes.  In both cases, only the resource handle in the config needs to change.
+**Приложение двенадцати факторов не различает локальные и сторонние сервисы.** Для приложения и то, и другое
+- сопутствующие ресурсы, доступ к которым осуществляется через URL или другие учетные данных, хранящиеся
+в [конфигурации](/config). [Деплой](/codebase) приложения двенадцати факторов должен уметь работать и с
+локальной базой данных MySQL, и с другими, управляемыми третьей стороной
+(например, [Amazon RDS](http://aws.amazon.com/rds/)), без каких-либо изменений в коде. Также должна быть
+возможность заменить локальный SMTP сервер на сторонний (например Postmark) без изменений в коде. В обоих
+случаях нужно изменить только обработку ресурсов в конфигурации.
 
-Each distinct backing service is a *resource*.  For example, a MySQL database is a resource; two MySQL databases (used for sharding at the application layer) qualify as two distinct resources.  The twelve-factor app treats these databases as *attached resources*, which indicates their loose coupling to the deploy they are attached to.
+Каждый отдельный сервис - это *ресурс*. Например, MySQL - это ресурс; две базы данных MySQL (которые
+используются для
+[шардирования](http://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D1%80%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5) на уровне приложения)
+рассматриваются как два отдельных ресурса. Приложение двенадцати факторов обращается к этим базам данных
+как к сопутствующим ресурсам, которые показывают их низкую связанность с деплоем, к которому они принадлежат.
 
 <img src="/images/attached-resources.png" class="full" alt="A production deploy attached to four backing services." />
 
-Resources can be attached and detached to deploys at will.  For example, if the app's database is misbehaving due to a hardware issue, the app's administrator might spin up a new database server restored from a recent backup.  The current production database could be detached, and the new database attached -- all without any code changes.
-
+По желанию ресурсы можно присоединять и отсоединять от деплоя. Например, если база данных ведет себя плохо
+из-за аппаратных проблем, администратор приложения может заменить ее базой данных восстановленной из
+резервной копии. Текущая база данных будет отсоединена, а новая присоединена -- без каких-либо вмешательств
