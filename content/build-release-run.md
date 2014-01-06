@@ -1,11 +1,16 @@
-## V. Build, release, run
-### Strictly separate build and run stages
+## V. Сборка, релиз, запуск
+### Строго разделяйте этапы сборки и запуска
 
-A [codebase](/codebase) is transformed into a (non-development) deploy through three stages:
+[Кодовая база](/codebase) трансформируется в (non-development) деплой в три этапа:
 
-* The *build stage* is a transform which converts a code repo into an executable bundle known as a *build*.  Using a version of the code at a commit specified by the deployment process, the build stage fetches and vendors [dependencies](/dependencies) and compiles binaries and assets.
-* The *release stage* takes the build produced by the build stage and combines it with the deploy's current [config](/config).  The resulting *release* contains both the build and the config and is ready for immediate execution in the execution environment.
-* The *run stage* (also known as "runtime") runs the app in the execution environment, by launching some set of the app's [processes](/processes) against a selected release.
+* *Этап сборки* - это преобразование репозитория в исполняемый пакет, который называют *сборка*.
+Используя версию кода, определенную в процессе деплоя, на этапе сборки получают и упаковывают
+[зависимости](/dependencies) и компилируют двоичные файлы и ассеты.
+* На *этапе релиза* сборку, полученную на предыдущем этапе объединяют с текущей [конфигурацией](/config).
+Получившийся *релиз*, содержащий в себе сборку и конфигурацию, готов к немедленному запуску в
+среде выполнения.
+* На *этапе запуска* (или "runtime") приложение запускают в среде выполнения, запуская некоторый
+набор [процессов](/processes) для выбранного релиза.
 
 ![Code becomes a build, which is combined with config to create a release.](/images/release.png)
 
