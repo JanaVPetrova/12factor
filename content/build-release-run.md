@@ -14,9 +14,13 @@
 
 ![Code becomes a build, which is combined with config to create a release.](/images/release.png)
 
-**The twelve-factor app uses strict separation between the build, release, and run stages.**  For example, it is impossible to make changes to the code at runtime, since there is no way to propagate those changes back to the build stage.
+**Приложение двенадцати факторов строго разделяет этапы сборки, релиза и запуска.** Например, невозможно внести
+изменения в код на этапе запуска, поскольку позже нельзя применить эти изменения на более ранней стадии сборки.
 
-Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.  For example, the [Capistrano](https://github.com/capistrano/capistrano/wiki) deployment tool stores releases in a subdirectory named `releases`, where the current release is a symlink to the current release directory.  Its `rollback` command makes it easy to quickly roll back to a previous release.
+В инструменты деплоя как правило входят инструенты управления релизами, в частности возможность откатить
+релиз на предыдущую версию. Например, [Capistrano](https://github.com/capistrano/capistrano/wiki)
+хранит релизы в поддиректории `releases`; текущий релиз - это симлинк на директорию текущего релиза.
+Команда `rollback` - это простой способ быстро откатиться на предыдущую версию релиза.
 
 Every release should always have a unique release ID, such as a timestamp of the release (such as `2011-04-06-20:32:17`) or an incrementing number (such as `v100`).  Releases are an append-only ledger and a release cannot be mutated once it is created.  Any change must create a new release.
 
