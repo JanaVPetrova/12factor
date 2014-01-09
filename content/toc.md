@@ -13,8 +13,8 @@ The Twelve Factors
 ## [IV. Резервные сервисы](/backing-services)
 ### Рассматривайте резервные сервисы как сопутствующие ресурсы
 
-## [V. Build, release, run](/build-release-run)
-### Strictly separate build and run stages
+## [V. Сборка, релиз, запуск](/build-release-run)
+### Строго разделяйте этапы сборки и запуска
 
 ## [VI. Processes](/processes)
 ### Execute the app as one or more stateless processes
