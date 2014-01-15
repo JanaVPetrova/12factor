@@ -16,8 +16,8 @@
 ## [V. Сборка, релиз, запуск](/build-release-run)
 ### Строго разделяйте этапы сборки и запуска
 
-## [VI. Processes](/processes)
-### Execute the app as one or more stateless processes
+## [VI. Процессы](/processes)
+### Выполняйте приложение как один или несколько процессов, не зависящих от состояния
 
 ## [VII. Port binding](/port-binding)
 ### Export services via port binding
