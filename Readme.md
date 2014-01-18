@@ -1,5 +1,7 @@
 The Twelve-Factor App
 =====================
+В этом репозитории хранится переведенный на русский язык проект [12factor](http://www.12factor.net/)
+
 
 Source for the content app running at: http://www.12factor.net/
 
