@@ -4,9 +4,9 @@
 *Конфигурация* приложения - это что-то, что должно изменяться для разных [деплоев](/codebase) (
 staging, production, окружение разработки, etc). В нее входит:
 
-* Resource handles to the database, Memcached, and other [backing services](/backing-services)
-* Credentials to external services such as Amazon S3 or Twitter
-* Per-deploy values such as the canonical hostname for the deploy
+* Обработчики ресурсов для баз данных, Memcached, и другие [резервные сервисы](/backing-services)
+* Данные доступа для внешних сервисов, таких как Amazon S3 или Twitter
+* Данные развертки, например название хоста
 
 Иногда конфигурация в приложении прописана константами прямо в коде. Это нарушение одного из двенадцати
 факторов, который требует **строго отделения конфигурации от кода**. Конфигурация меняется от деплоя к деплою,
