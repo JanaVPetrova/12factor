@@ -26,4 +26,7 @@
 инкрементируемый номер (`v100`). Релизы можно только добавлять и ни в коем случае их нельзя изменять.
 Для любых изменений должен быть создан новый релиз.
 
-Builds are initiated by the app's developers whenever new code is deployed.  Runtime execution, by contrast, can happen automatically in cases such as a server reboot, or a crashed process being restarted by the process manager.  Therefore, the run stage should be kept to as few moving parts as possible, since problems that prevent an app from running can cause it to break in the middle of the night when no developers are on hand.  The build stage can be more complex, since errors are always in the foreground for a developer who is driving the deploy.
+Сборка инициируется разработчиками как только задеплоили новый код. Запуск напротив,
+может происходить автоматически после перезагрузки сервера или после того, как менеджер процессов
+восстановил какой-либо процесс. Тем не менее, на этапе выполнения должно быть как можно меньше хрупких
+частей, поскольку посреди ночи, когда разработчики недоступны, могут возникнуть проблемы, мешающие выполнению приложения. Этап сборки может быть более сложным, так как разработчик, разворачивающий приложение всегда видит ошибки.
