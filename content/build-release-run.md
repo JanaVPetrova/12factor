@@ -22,8 +22,8 @@
 хранит релизы в поддиректории `releases`; текущий релиз - это симлинк на директорию текущего релиза.
 Команда `rollback` - это простой способ быстро откатиться на предыдущую версию релиза.
 
-У каждого релиза должен быть уникальный IP, например таймстемп (такой как `2011-04-06-20:32:17`) или
-инкрементируемый номер (`v100`). Релизи можно только добавлять и ни в коем случае их нельзя изменять.
+У каждого релиза должен быть уникальный ID, например таймстемп (такой как `2011-04-06-20:32:17`) или
+инкрементируемый номер (`v100`). Релизы можно только добавлять и ни в коем случае их нельзя изменять.
 Для любых изменений должен быть создан новый релиз.
 
 Builds are initiated by the app's developers whenever new code is deployed.  Runtime execution, by contrast, can happen automatically in cases such as a server reboot, or a crashed process being restarted by the process manager.  Therefore, the run stage should be kept to as few moving parts as possible, since problems that prevent an app from running can cause it to break in the middle of the night when no developers are on hand.  The build stage can be more complex, since errors are always in the foreground for a developer who is driving the deploy.
