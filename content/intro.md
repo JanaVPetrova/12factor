@@ -6,9 +6,11 @@
 
 * Используют декларативный формат для автоматизации конфигурации, чтобы сократить время и стоимость внедрения в проект новых
 разработчиков;
+<!-- FIXME
+  * Have a **clean contract** with the underlying operating system, offering **maximum portability** between execution environments;
+-->
+* Можно деплоить на современные **облачные платформы**, таким образом устраняя потребность в серверах и системном администрировании;
 
-* Have a **clean contract** with the underlying operating system, offering **maximum portability** between execution environments;
-* Are suitable for **deployment** on modern **cloud platforms**, obviating the need for servers and systems administration;
 * **Minimize divergence** between development and production, enabling **continuous deployment** for maximum agility;
 * And can **scale up** without significant changes to tooling, architecture, or development practices.
 
