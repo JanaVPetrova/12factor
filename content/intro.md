@@ -14,4 +14,5 @@
 максимальной гибкости;
 * Может **масштабироваться** без существенных изменений в инструментах, архитектуре или практиках разработки.
 
-The twelve-factor methodology can be applied to apps written in any programming language, and which use any combination of backing services (database, queue, memory cache, etc).
+Методологию двенадцати факторов можно использовать в приложениях, написанных на любом языке программирования, которые используют
+любой набор резервных сервисов (базы данных, очереди, кэш-память, и т. д.).
