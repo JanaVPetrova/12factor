@@ -12,9 +12,21 @@
 [share-nothing](http://en.wikipedia.org/wiki/Shared_nothing_architecture).** Любые данные, которые нужно
 записать, хранятся в stateful [резервном сервисе](/backing-services), обычно в базе данных.
 
-The memory space or filesystem of the process can be used as a brief, single-transaction cache.  For example, downloading a large file, operating on it, and storing the results of the operation in the database.  The twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request or job -- with many processes of each type running, chances are high that a future request will be served by a different process.  Even when running only one process, a restart (triggered by code deploy, config change, or the execution environment relocating the process to a different physical location) will usually wipe out all local (e.g., memory and filesystem) state.
+<!-- FIXME brief, single-transaction cache -->
+Пространство памяти или файловая система процесса может быть использована как маленький single-transaction кэш. Например, для
+загрузки большого файла, его обработки и сохранения результатов в базу данных. Приложение двенадцати факторов никогда не расчитывает
+на то, что данные, сохраненные в память или на диск, будут доступны для следующих запросов. Когда процессов разного типа много,
+велика вероятность того, что следующий запрос обработает другой процесс. Даже если запущен всего один процесс, перезапуск
+(спровоцированный деплоем, изменением конфигурации или среды выполнения, которая может физически перенести процесс) обычно
+уничтожает всю локальную (например, память и файловую систему) структуру.
 
-Asset packagers (such as [Jammit](http://documentcloud.github.com/jammit/) or [django-assetpackager](http://code.google.com/p/django-assetpackager/)) use the filesystem as a cache for compiled assets.  A twelve-factor app prefers to do this compiling during the [build stage](/build-release-run), such as the [Rails asset pipeline](http://ryanbigg.com/guides/asset_pipeline.html), rather than at runtime.
+Упаковщики ассетов (такие как Jammit](http://documentcloud.github.com/jammit/) или
+[django-assetpackager](http://code.google.com/p/django-assetpackager/)) используют файловую систему как кэш для скомпилированных
+ассетов. Приложение двенадцати факторов предпочитает компилировать ассеты на [этапе сборки](/build-release-run), как, например,
+[Rails asset pipeline](http://ryanbigg.com/guides/asset_pipeline.html).
 
-Some web systems rely on ["sticky sessions"](http://en.wikipedia.org/wiki/Load_balancing_%28computing%29#Persistence) -- that is, caching user session data in memory of the app's process and expecting future requests from the same visitor to be routed to the same process.  Sticky sessions are a violation of twelve-factor and should never be used or relied upon.  Session state data is a good candidate for a datastore that offers time-expiration, such as [Memcached](http://memcached.org/) or [Redis](http://redis.io/).
-
+Некоторые web системы расчитывают на ["липкие сессии (sticky sessions)"](http://en.wikipedia.org/wiki/Load_balancing_%28computing%29#Persistence) --
+это кэширование пользовательских сессий в память процесса приложения и ожидание, что последующие запросы будут приходить от тех же
+пользователей и обрабатываться теми же процессами. Липкие сессии (sticky sessions) - это нарушение двенадцати факторов и их
+никогда не следует использовать. Состояние сессии хорошо хранить в хранилище данных с функцией истечения срока действия, например
+[Memcached](http://memcached.org/) или [Redis](http://redis.io/).
