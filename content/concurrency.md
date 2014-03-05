@@ -1,11 +1,27 @@
-## VIII. Concurrency
-### Scale out via the process model
+## VIII. Параллелизм
+### Расширяйтесь с помощью модели процессов
 
-Any computer program, once run, is represented by one or more processes.  Web apps have taken a variety of process-execution forms.  For example, PHP processes run as child processes of Apache, started on demand as needed by request volume.  Java processes take the opposite approach, with the JVM providing one massive uberprocess that reserves a large block of system resources (CPU and memory) on startup, with concurrency managed internally via threads.  In both cases, the running process(es) are only minimally visible to the developers of the app.
+Любая запущенная компьютерная программа представляет собой один или несколько процессов. Веб приложения запускаются по-разному.
+Например, PHP процессы порождаются от Apache и стартуют по запросу. Процессы Java используют
+противоположный подход: во время старта JVM запускает один сверхпроцесс, который резервирует большой кусок системных ресурсов
+(ЦПУ и память), а параллелизм достигается засчет внутренних тредов. В обоих случаях разработчики приложения очень мало работают
+с самими процессами.
 
-![Scale is expressed as running processes, workload diversity is expressed as process types.](/images/process-types.png)
+![Масштабирование выражается в запущенных процессах, различные нагрузки - в типах процессов](/images/process-types.png)
+
+**В приложении двенадцати факторов процессы имеют высокий приоритет.** Процессы в приложении двенадцати факторов принимают
+строгие сигналы от [unix модели процессов для запуска сервисных демонов](http://adam.heroku.com/past/2011/5/9/applying_the_unix_process_model_to_web_apps/).
+Используя эту модель, разработчик может проектировать свое приложение так, чтобы оно могло справится с различной нагрузкой,
+назначая каждый тип работы определенному *типу процессов*. Например, запросы HTTP могут обрабатываться web-процессом, а долгие
+фоновые задачи могут обрабаываться рабочим процессом.
 
 **In the twelve-factor app, processes are a first class citizen.**  Processes in the twelve-factor app take strong cues from [the unix process model for running service daemons](http://adam.heroku.com/past/2011/5/9/applying_the_unix_process_model_to_web_apps/).  Using this model, the developer can architect their app to handle diverse workloads by assigning each type of work to a *process type*.  For example, HTTP requests may be handled by a web process, and long-running background tasks handled by a worker process.
+
+Но отдельные процессы также могут иметь свое внутреннее мультиплексирование с помощью тредов внутри виртуалной машины, или
+асинхронную модель событий, которые есть в таких инструментах как [EventMachine](http://rubyeventmachine.com/),
+[Twisted](http://twistedmatrix.com/trac/), и [Node.js](http://nodejs.org/). Но отдельная виртуальная машина может только
+расти (масштабироваться вертикально), поэтому приложение должно уметь работать с несколькими процессами, которые запущены на разных
+физических машинах.
 
 This does not exclude individual processes from handling their own internal multiplexing, via threads inside the runtime VM, or the async/evented model found in tools such as [EventMachine](http://rubyeventmachine.com/), [Twisted](http://twistedmatrix.com/trac/), or [Node.js](http://nodejs.org/).  But an individual VM can only grow so large (vertical scale), so the application must also be able to span multiple processes running on multiple physical machines.
 
