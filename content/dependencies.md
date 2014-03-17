@@ -34,6 +34,3 @@ Clojure/[Leiningen](https://github.com/technomancy/leiningen#readme) - `lein dep
 никакой гарантии, что они будут установлены во всех системах, в которых это приложение будет запускаться в
 будущем, как и нет гарантий, что установленная версия будет совместима с этим приложением. Если приложению
 требуются внешние инструменты, то их нужно поставлять вместе и ним.
-<!--- FIXME
-If the app needs to shell out to a system tool, that tool should be vendored into the app.
--->
