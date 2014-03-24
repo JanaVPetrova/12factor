@@ -15,8 +15,6 @@
 назначая каждый тип работы определенному *типу процессов*. Например, запросы HTTP могут обрабатываться web-процессом, а долгие
 фоновые задачи могут обрабаываться рабочим процессом.
 
-**In the twelve-factor app, processes are a first class citizen.**  Processes in the twelve-factor app take strong cues from [the unix process model for running service daemons](http://adam.heroku.com/past/2011/5/9/applying_the_unix_process_model_to_web_apps/).  Using this model, the developer can architect their app to handle diverse workloads by assigning each type of work to a *process type*.  For example, HTTP requests may be handled by a web process, and long-running background tasks handled by a worker process.
-
 Но отдельные процессы также могут иметь свое внутреннее мультиплексирование с помощью тредов внутри виртуалной машины, или
 асинхронную модель событий, которые есть в таких инструментах как [EventMachine](http://rubyeventmachine.com/),
 [Twisted](http://twistedmatrix.com/trac/), и [Node.js](http://nodejs.org/). Но отдельная виртуальная машина может только
@@ -34,5 +32,3 @@ The process model truly shines when it comes time to scale out.  The [share-noth
 (например [Upstart](http://upstart.ubuntu.com/), распределенный менеджер процессов на облачной платформе, или такой инструмент
 как [Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html) во время разработки), для управления
 [потоками вывода](/logs), реагируйте на падение процессов и обрабатывайте перезапуски и выключения, инициированные пользователем.
-
-Twelve-factor app processes [should never daemonize](http://dustin.github.com/2010/02/28/running-processes.html) or write PID files.  Instead, rely on the operating system's process manager (such as [Upstart](http://upstart.ubuntu.com/), a distributed process manager on a cloud platform, or a tool like [Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html) in development) to manage [output streams](/logs), respond to crashed processes, and handle user-initiated restarts and shutdowns.
