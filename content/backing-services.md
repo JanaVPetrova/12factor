@@ -2,8 +2,8 @@
 ### Относитесь к резервным сервисам так же, как и к связанным
 
 *Резервный сервис* - это любой сервис, ресурсы которого приложение использует во время своей обычной
-работы. Примерами являются хранилища данных (такие как [MySQL](http://dev.mysql.com/) или
-[CouchDB](http://couchdb.apache.org/)), системы обмена сообщениями (такие как [RabbitMQ](http://www.rabbitmq.com/)
+работы. Примерами являются хранилища данных ([MySQL](http://dev.mysql.com/) или
+[CouchDB](http://couchdb.apache.org/)), системы обмена сообщениями ([RabbitMQ](http://www.rabbitmq.com/)
 или [Beanstalkd](http://kr.github.com/beanstalkd/)), SMTP сервисы для исходящих сообщений (например
 [Postfix](http://www.postfix.org/)) и системы кеширования (такие как [Memcached](http://memcached.org/))
 
