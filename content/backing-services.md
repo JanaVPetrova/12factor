@@ -7,12 +7,12 @@
 или [Beanstalkd](http://kr.github.com/beanstalkd/)), SMTP сервисы для исходящих сообщений (например
 [Postfix](http://www.postfix.org/)) и системы кеширования (такие как [Memcached](http://memcached.org/))
 
-Обычно и резервными сервисами, и самим приложением управляют одни и те же администраторы. В добавок к
+Обычно резервные сервисы и само приложение администрируют одни и те же люди. В добавок к
 ним приложение может использовать другие сервисы, которыми управляет третья сторона. Примерами таких сервисов
-могут быть SMTP серверы (такие как [Postmark](http://postmarkapp.com/)), сервисы по сбору метрик
-(как [New Relic](http://newrelic.com/) или [Loggly](http://www.loggly.com/)), binary asset services
+могут быть SMTP серверы ([Postmark](http://postmarkapp.com/)), сервисы по сбору метрик
+([New Relic](http://newrelic.com/) или [Loggly](http://www.loggly.com/)), binary asset services
 ([Amazon S3](http://aws.amazon.com/s3/)) и даже сервисы, предоставляющие пользовательские API
-(такие как [Twitter](http://dev.twitter.com/), [Google Maps](http://code.google.com/apis/maps/index.html),
+([Twitter](http://dev.twitter.com/), [Google Maps](http://code.google.com/apis/maps/index.html),
 или [Last.fm](http://www.last.fm/api)).
 
 **Приложение двенадцати факторов не различает локальные и сторонние сервисы.** Для приложения и то, и другое
