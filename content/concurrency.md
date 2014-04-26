@@ -29,6 +29,6 @@ The process model truly shines when it comes time to scale out.  The [share-noth
 
 Процессы приложения двенадцати факторов [никогда не демонизируются](http://dustin.github.com/2010/02/28/running-processes.html)
 и никогда не пишут PID файлы. Вместо этого полагайтесь на менеждер процессов операционной системы
-(например [Upstart](http://upstart.ubuntu.com/), распределенный менеджер процессов на облачной платформе, или такой инструмент
-как [Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html) во время разработки), для управления
+(например [Upstart](http://upstart.ubuntu.com/), распределенный менеджер процессов на облачной платформе, или
+[Foreman](http://blog.daviddollar.org/2011/05/06/introducing-foreman.html) во время разработки), для управления
 [потоками вывода](/logs), реагируйте на падение процессов и обрабатывайте перезапуски и выключения, инициированные пользователем.
